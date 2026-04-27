@@ -1,83 +1,82 @@
-
-/* Overall page styling */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-  color: #222;
+/* === OVERALL / BODY === */
+.page-wrapper {
+    font-family: 'Times New Roman', 'Julius Sans One', serif;
+    font-size: 15pt;
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
 }
 
-/* Header */
-header {
-  background-color: #1a1a2e;
-  color: white;
-  padding: 20px 30px;
+.body-text {
+    font-family: 'Times New Roman', 'Julius Sans One', serif;
+    font-size: 15pt;
+    line-height: 1.15;
+    color: #ffffff;
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2em;
+/* === HEADER / BRANDING === */
+.site-header {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
+    background-color: #cc0000;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
 }
 
-/* Navigation */
-nav {
-  background-color: #16213e;
-  padding: 10px 30px;
+.site-title {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
+    font-size: 2.5em;
+    letter-spacing: 3px;
+    color: #ffffff;
 }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 20px;
+/* === NAVIGATION === */
+.nav-bar {
+    background-color: #1a1a1a;
+    padding: 10px 0;
+    text-align: center;
 }
 
-nav a {
-  color: #e0e0e0;
-  text-decoration: none;
-  font-weight: bold;
+.nav-link {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 18px;
+    display: inline-block;
 }
 
-nav a:hover {
-  color: #00d4ff;
+.nav-link:hover {
+    background-color: #cc0000;
+    border-radius: 4px;
 }
 
-/* Main content */
-main {
-  padding: 30px;
-  max-width: 800px;
-  margin: 20px auto;
-  background-color: white;
-  border-radius: 8px;
+/* === CONTENT SECTION === */
+.content-section {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 25px 30px;
+    background-color: #1a1a1a;
+    border-radius: 6px;
 }
 
-main p {
-  line-height: 1.7;
-  font-size: 1.1em;
+.section-heading {
+    color: #cc0000;
+    border-bottom: 2px solid #cc0000;
+    padding-bottom: 5px;
 }
 
-main img {
-  max-width: 100%;
-  border-radius: 6px;
-  margin-top: 20px;
+.highlight-text {
+    color: #cc0000;
+    font-weight: bold;
 }
 
-/* Footer */
-footer {
-  background-color: #1a1a2e;
-  color: #ccc;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-}
-
-footer a {
-  color: #00d4ff;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
+/* === FOOTER === */
+.site-footer {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    line-height: 1.15;
+    font-size: 0.9em;
 }

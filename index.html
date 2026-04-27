@@ -6,32 +6,45 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/svg" sizes="16x16" href="_images/kody.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="_css/format.css">
+
+    <!-- Embedded Styles -->
+    <style>
+      body { background-color: #000000; color: #ffffff; }
+      a    { color: #cc0000; }
+      h2   { font-family: 'Franklin Gothic Medium', sans-serif; }
+    </style>
   </head>
   <body>
-    <header>
-      <h1>Vaishvik Dogiparthi's Web Portfolio</h1>
+    <header class="site-header">
+      <h1 class="site-title" style="color: #cc0000;">Vaishvik Dogiparthi's Web Portfolio</h1>
     </header>
 
-    <nav aria-label="main menu">
+    <nav class="nav-bar" aria-label="main menu">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="labs/html_lab/index.html">HTML Lab</a></li>
-        <li><a href="labs/link_lab/index.html">Link Lab</a></li>
-        <li><a href="reports/">Reports</a></li>
-        <li><a href="pwp/">Personal Website Project</a></li>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="about.html">About Me</a></li>
+        <li><a class="nav-link" href="labs/html_lab/index.html">HTML Lab</a></li>
+        <li><a class="nav-link" href="labs/link_lab/index.html">Link Lab</a></li>
+        <li><a class="nav-link" href="reports/">Reports</a></li>
+        <li><a class="nav-link" href="pwp/">Personal Website Project</a></li>
       </ul>
     </nav>
 
-    <main>
-      <p>Hi, I'm Vaishvik, a student at Cascadia College. This portfolio showcases
-      my web development work from IT-WEB112, including labs and projects built
-      with HTML and CSS.</p>
-      <img src="_images/web-dev-work.png" alt="Screenshot of my web development work">
+    <main class="content-section">
+      <p class="body-text" style="font-size: 15pt; line-height: 1.15;">
+        Hi, I'm Vaishvik, a student at Cascadia College. This portfolio showcases
+        my web development work from IT-WEB112, including labs and projects built
+        with HTML and CSS.
+      </p>
+      <img src="_images/web-dev-work.png"
+           alt="Screenshot of my web development work"
+           style="max-width: 100%; height: auto;">
     </main>
 
-    <footer>
+    <footer class="site-footer">
       <p><a href="style-guide.html">Portfolio Style Guide</a></p>
     </footer>
   </body>

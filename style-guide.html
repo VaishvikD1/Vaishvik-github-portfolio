@@ -2,45 +2,70 @@
 <html lang="en">
   <head>
     <title>Style Guide - Vaishvik Dogiparthi Portfolio</title>
+    <meta name="author" content="Vaishvik Dogiparthi">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="_css/format.css">
+
+    <!-- Embedded Styles -->
+    <style>
+      body  { background-color: #000000; color: #ffffff; }
+      a     { color: #cc0000; }
+      table { width: 100%; border-collapse: collapse; }
+    </style>
   </head>
   <body>
-    <header>
-      <h1>Portfolio Style Guide</h1>
+    <header class="site-header">
+      <h1 class="site-title" style="color: #cc0000;">Portfolio Style Guide</h1>
     </header>
 
-    <nav role="navigation" aria-label="main menu">
+    <nav class="nav-bar" role="navigation" aria-label="main menu">
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
+        <li><a class="nav-link" href="index.html">Home</a></li>
+        <li><a class="nav-link" href="about.html">About Me</a></li>
       </ul>
     </nav>
 
-    <main>
-      <h2>Colors</h2>
-      <p>Background: #1a1a2e (dark navy) for header and footer</p>
-      <p>Accent: #00d4ff (cyan) for links and hover states</p>
-      <p>Body background: #f4f4f4 (light gray)</p>
-      <p>Content background: #ffffff (white)</p>
+    <main class="content-section">
 
-      <h2>Typography</h2>
-      <p>Font family: Arial, sans-serif</p>
-      <p>Body font size: 1.1em with 1.7 line height for readability</p>
-      <p>Headings: bold, sized with em units</p>
+      <h2 class="section-heading">Overall Formatting</h2>
+      <p class="body-text">The overall site colors are Red (#cc0000) and Black (#000000).</p>
+      <p class="body-text">The general font-family is Times New Roman with Julius Sans One as a fallback.</p>
+      <p class="body-text">The general text size is 15pt with a line-height of 1.15.</p>
 
-      <h2>Layout</h2>
-      <p>Pages use four structural sections: header, nav, main, and footer.</p>
-      <p>Main content is centered with a max-width of 800px and auto margins.</p>
+      <h2 class="section-heading">Site Header / Branding</h2>
+      <p class="body-text">The header uses the font Franklin Gothic Medium (fallback: Arial Narrow).</p>
+      <p class="body-text">Header background is red (#cc0000) with white (#ffffff) text for contrast.</p>
+      <p class="body-text">CSS classes applied: <span class="highlight-text">.site-header</span> and <span class="highlight-text">.site-title</span></p>
 
-      <h2>CSS Selectors Used</h2>
-      <p>Descendant selectors: header h1, nav ul, nav a, main p, main img, footer a</p>
-      <p>Pseudo-class: nav a:hover, footer a:hover</p>
+      <h2 class="section-heading">Navigation Links</h2>
+      <p class="body-text">Navigation uses Franklin Gothic Medium font, matching the header.</p>
+      <p class="body-text">Nav bar background is dark black (#1a1a1a) with white link text.</p>
+      <p class="body-text">On hover, links get a red (#cc0000) background with rounded corners.</p>
+      <p class="body-text">CSS classes applied: <span class="highlight-text">.nav-bar</span> and <span class="highlight-text">.nav-link</span></p>
+
+      <h2 class="section-heading">Content Section</h2>
+      <p class="body-text">Content uses a max-width of 900px, centered with auto margins.</p>
+      <p class="body-text">Padding is 25px top/bottom and 30px left/right.</p>
+      <p class="body-text">Background color is dark (#1a1a1a) with a subtle border-radius of 6px.</p>
+      <p class="body-text">CSS classes applied: <span class="highlight-text">.content-section</span> and <span class="highlight-text">.body-text</span></p>
+
+      <h2 class="section-heading">Site Footer</h2>
+      <p class="body-text">Footer background color is dark black (#1a1a1a).</p>
+      <p class="body-text">Text is white (#ffffff), centered, with a line-height of 1.15.</p>
+      <p class="body-text">CSS classes applied: <span class="highlight-text">.site-footer</span></p>
+
+      <h2 class="section-heading">Stylesheet Types Used</h2>
+      <p class="body-text">External stylesheet: <span class="highlight-text">_css/format.css</span> — contains 10+ CSS rules using class selectors.</p>
+      <p class="body-text">Embedded styles: defined in a &lt;style&gt; tag in the &lt;head&gt; — sets body background, link color, and h2 font.</p>
+      <p class="body-text">Inline styles: applied directly to elements — e.g. red color on &lt;h1&gt;, font-size and line-height on &lt;p&gt;, and max-width on &lt;img&gt;.</p>
+
     </main>
 
-    <footer>
-      <p><a href="style-guide.html">Portfolio Style Guide</a></p>
+    <footer class="site-footer">
+      <p><a href="index.html">Back to Home</a></p>
     </footer>
   </body>
 </html>
