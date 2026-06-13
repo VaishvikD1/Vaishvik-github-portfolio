@@ -1,0 +1,361 @@
+
+Development Guide
+This section documents the technical structure, navigation architecture, HTML template, and wireframe for the Supercars website.
+
+Site Directory Structure
+The following directory structure organizes all assets for the Supercars site. Files are separated by type into dedicated subfolders for maintainability.
+
+Path
+Contents / Purpose
+supercars/
+Root directory contains all HTML files and subdirectories
+  images/
+All JPG/PNG/WebP image files (car photos, logos, hero backgrounds)
+  styles/
+CSS stylesheets styles.css (main), responsive.css (breakpoints)
+  fonts/
+Any locally hosted font files (fallback for Bebas Neue, Inter)
+  trinity/
+Holy Trinity deep-dive pages p1.html, laferrari.html, 918.html
+  brands/
+Individual brand pages ferrari.html, lamborghini.html, mclaren.html, etc.
+  culture/
+Car culture sub-pages (films, games, motorsport)
+  index.html
+Home page hero, brands overview, Holy Trinity cards, sidebar
+  brands.html
+Full brands hub page organized by national car culture
+  culture.html
+Car culture in film, games, and motorsport
+  hobbies.html
+Hot Wheels collecting, LEGO Technic builds, sim racing
+  trinity.html
+Holy Trinity hub links to all three individual car deep-dives
+
+
+Main Navigation
+The site uses a sticky top navigation bar linking to all major sections. The navigation flow below shows each unique page and how they connect.
+
+Page
+Links To
+Accessible From
+index.html (Home)
+brands.html, culture.html, hobbies.html, trinity.html
+All pages via nav bar
+brands.html
+ferrari.html, lamborghini.html, mclaren.html, bugatti.html, koenigsegg.html, pagani.html
+Home (nav), index brand list
+trinity.html
+p1.html, laferrari.html, 918.html
+Home (nav + hero cards)
+culture.html
+External: IMDb, Wikipedia pages for films/games
+Home (nav + sidebar)
+hobbies.html
+External: Hot Wheels official, LEGO Technic
+Home (nav + sidebar)
+trinity/*.html
+Back to trinity.html; external: Google Image search for each car
+trinity.html, Home hero cards
+brands/*.html
+Back to brands.html; external: manufacturer sites
+brands.html
+
+
+Navigation Flow (text outline):
+Home (index.html)
+Brands (brands.html)
+Ferrari, Lamborghini, McLaren, Bugatti, Koenigsegg, Pagani
+Holy Trinity (trinity.html)
+McLaren P1, Ferrari LaFerrari, Porsche 918 Spyder
+Car Culture (culture.html)
+Hobbies (hobbies.html)
+
+HTML Template
+The template below serves as the master structure for all pages on the site. Each section is self-documented with comments explaining its role. All pages are generated from this single template.
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supercars [Page Title]</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+</head>
+<body>
+
+  <!-- IDENTITY BLOCK: logo + brand name, appears on every page -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="site-identity">
+        <span class="site-logo-icon" aria-hidden="true">🏎️</span>
+        <span class="site-logo-text">Supercars</span>
+      </div>
+      <!-- NAVIGATION: sticky, links to all main sections -->
+      <nav aria-label="Main Navigation">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../brands.html">Brands</a></li>
+          <li><a href="../culture.html">Culture</a></li>
+          <li><a href="../hobbies.html">Hobbies</a></li>
+          <li><a href="../trinity.html">Holy Trinity</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT: primary page content goes here -->
+  <main id="main-content">
+    <section aria-labelledby="page-heading">
+      <h1 id="page-heading">[Page Heading]</h1>
+      <p>[Page intro text]</p>
+      <!-- Page-specific content blocks -->
+    </section>
+  </main>
+
+  <!-- FOOTER: copyright, links, tagline -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <span class="footer-logo">🏎️ Supercars</span>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="../index.html">Home</a>
+        <a href="../brands.html">Brands</a>
+        <a href="../trinity.html">Holy Trinity</a>
+      </nav>
+      <p class="footer-copy">&copy; 2025 Vaishvik Dogiparthi</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
+Wireframe
+The wireframe consists of one plain HTML file per navigation section. Pages are unstyled (black and white, default browser fonts) but fully linked together. Each page states its section name and lists the content topics it will contain when complete.
+
+File
+Heading Text
+Topics Listed on Page
+index.html
+Supercars Home
+Hero banner, brand links, Holy Trinity cards, culture sidebar, hobbies
+brands.html
+Supercar Brands
+Italian culture (Ferrari, Lamborghini, Pagani), British (McLaren), Swedish (Koenigsegg), French (Bugatti)
+trinity.html
+The Holy Trinity
+McLaren P1, Ferrari LaFerrari, Porsche 918 Spyder specs, history, significance
+culture.html
+Car Culture
+Films (Fast & Furious, Rush, Cars), TV (Formula 1), Games (NFS, Gran Turismo)
+hobbies.html
+Supercar Hobbies
+Hot Wheels die-cast collecting, LEGO Technic car sets, sim racing
+
+
+GitHub repository name: vaishvik-supercars  |  All wireframe pages link to each other via a plain <nav> block at the top.
+
+Interactivity List (Bonus)
+
+Interactive Element
+Type
+Purpose & Notes
+Holy Trinity hover cards
+CSS + JS event
+On hover, dim the car image and reveal name + specs overlay. Keyboard-accessible via :focus-visible.
+Favorite Car field
+contenteditable
+Visitors type their favorite car directly on the page no form submission needed. Simple entry point.
+Hamburger nav menu
+CSS checkbox trick
+Mobile navigation toggle using a hidden checkbox input no JS required, accessible via label.
+Brand spec comparison
+JS table filter
+Future: allow visitors to select two brands/cars and compare specs side-by-side in a dynamic table.
+0–60 mph timer widget
+JS countdown
+Future: animated timer that counts down from 0 to the car's 0–60 mph time for each Trinity card.
+
+
+
+SECTION 2
+Design Guide
+This section documents the visual design decisions for the Supercars site, including layout, color palette, typography, style rules, and media assets.
+
+Layout & Storyboard
+The site uses a two-column CSS grid layout on desktop (2/3 main content + 1/3 sidebar), collapsing to a single column on screens below 900px. The layout follows the rule of thirds: the hero occupies the top visual third, the content grid fills the middle, and the footer anchors the bottom.
+
+[ STICKY HEADER Logo   |   Brands   Culture   Hobbies   Holy Trinity ]
+─────────────────────────────────────────────────────────────────────────────
+[ HERO Full-width   "Speed. Power. Beauty." tagline + H1 ]
+─────────────────────────────────────────────────────────────────────────────
+[ CONTENT GRID  ───────────────────────────────  |  SIDEBAR ─── ]
+[ 2/3 Brands, Holy Trinity cards, spec tables ]  |  [ 1/3 Car Culture, Hobbies, Fav Car ]
+─────────────────────────────────────────────────────────────────────────────
+[ FOOTER Logo + tagline   |   Nav links   |   Copyright ]
+
+
+Color Palette
+The palette is built around a dark background with a racing red accent. Near-white body text ensures high contrast. Muted grays serve as secondary text and UI dividers.
+
+Chip
+Name
+Hex
+Usage
+ 
+Racing Red
+#E10600
+Primary accent nav underlines, headings, borders, logo text, footer bar
+ 
+Red Bright
+#FF3322
+Hover states brand card border, nav link hover, interactive highlights
+ 
+Midnight Black
+#0A0A0A
+Page background creates the high-contrast, high-performance atmosphere
+ 
+Carbon Dark
+#141414
+Card backgrounds Trinity cards, brand list items, interactive elements
+ 
+Asphalt
+#111111
+Header and footer background slightly lighter than page BG for depth
+ 
+Near White
+#F0F0F0
+Primary body text WCAG-level contrast against dark backgrounds
+ 
+Dim Gray
+#AAAAAA
+Secondary text subtitles, nav link default state, intro paragraphs
+ 
+Muted Gray
+#888888
+Footer text, metadata, captions, least-important UI labels
+ 
+Dark Border
+#2A2A2A
+Card borders, list dividers, UI separators subtle structure without brightness
+
+
+Style Guide
+The following style rules define the visual presentation of the site's key elements. Full CSS is in styles/styles.css; this guide lists anticipated rules organized by component.
+
+Typography
+Element
+Font / Size
+Notes
+Logo / Display headings
+Bebas Neue, fallback Impact
+All-caps, 1.7rem (header), 5.5rem (hero), 1.6rem (section h2)
+Body text
+Inter 400, 1rem / 1.7 line-height
+Default text color #F0F0F0 on #0A0A0A background
+Nav links
+Inter 700, 0.85rem
+Uppercase, letter-spacing 0.07em, color #AAA default → #FFF hover → #E10600 active
+Section headings (h2)
+Bebas Neue, 1.6rem
+Color #E10600, border-bottom 1px rgba(225,6,0,0.3), uppercase
+Card overlay text
+Bebas Neue 1.1rem / Inter 0.75rem
+Car name in Bebas Neue white; stats in Inter semi-transparent white
+Footer / metadata
+Inter 400, 0.75–0.8rem
+Color #888, uppercase, letter-spacing 0.1em
+
+
+Layout & Spacing
+Max content width: 1100px, centered with auto margins
+Gutter / padding: 1.5rem on mobile; scales up with clamp()
+Content grid: grid-template-columns: 2fr 1fr (desktop) → 1fr (≤900px)
+Sidebar: position: sticky, top: 60px + 1.5rem (below header)
+Hero padding: clamp(3rem, 10vw, 6rem) top and bottom
+
+Header & Navigation
+Header: position: sticky, top: 0, z-index: 100, background #111, border-bottom 3px solid #E10600
+Nav links: underline animation via ::after pseudo-element, left/right transition from center
+Active link: color #E10600, underline visible at rest
+Mobile (≤768px): hamburger toggle appears, nav collapses to vertical list
+
+Cards (Holy Trinity)
+Aspect ratio: 4/3, overflow: hidden, border-radius: 6px
+Hover: image scale(1.06) + brightness(0.4), overlay opacity 0 → 1
+Focus: box-shadow 0 0 0 3px #E10600 for keyboard accessibility
+
+Sidebar Sections
+Background: #141414, border: 1px solid #2A2A2A, border-left: 3px solid #E10600
+Sticky below header, drops to static on mobile (≤900px)
+Culture list items separated by 1px border-bottom #2A2A2A
+contenteditable field: dashed red border, turns solid on :focus
+
+Media Assets
+The following image and media files are used or planned for the Supercars site. Lazy loading is applied to all below-fold images.
+
+File / Description
+Type
+Source
+License / Notes
+McLaren P1 front 3/4 view
+JPG
+sportscarmarket.com
+Editorial use; to be replaced with CC-licensed photo before publish
+Ferrari LaFerrari in red
+JPG
+cdn.shopify.com (dealer)
+Editorial placeholder; replace with Wikimedia Commons CC image
+Porsche 918 Spyder on road
+JPG
+motortrend.com
+Editorial placeholder; Porsche press images available via press.porsche.com
+Hero background texture
+CSS gradient
+Generated (no external file)
+Pure CSS radial + linear gradient no licensing concern
+Brand logo images (future)
+SVG/PNG
+Wikipedia / official press kits
+Use only official press-kit logos; verify trademark use policy per brand
+Car culture posters (future)
+JPG/PNG
+Movie studio press kits
+Fast & Furious / Rush press images; verify editorial-use terms
+Bebas Neue font
+WOFF2
+Google Fonts
+Open Font License (OFL) free for all use
+Inter font
+WOFF2
+Google Fonts / rsms.me
+Open Font License (OFL) free for all use
+
+
+
+APPENDIX
+Appendix Project Overview
+
+Field
+Detail
+Project Name
+Supercars
+Developer
+Vaishvik Dogiparthi
+Site Tagline
+Speed. Power. Beauty.
+Primary Goal
+Educate and inspire automotive enthusiasts with a visually compelling, personal take on the supercar world
+Target Audience
+Supercar enthusiasts (15–40), casual car fans, pop-culture viewers, collectors and hobbyists
+Site Personality
+Bold, high-performance, dark aesthetic energized and exciting without being unwelcoming
+Tech Stack
+HTML5, CSS3 (custom properties, CSS Grid, Flexbox), vanilla JS for interactions
+Responsive Breakpoints
+≤900px: single column layout; ≤768px: hamburger nav; ≤540px: trinity cards stack
+Comparable Sites
+Motor Trend (motortrend.com), Top Gear (topgear.com), Supercar Blondie (supercarblondie.com)
+GitHub Repo
+vaishvik-supercars
+
+
