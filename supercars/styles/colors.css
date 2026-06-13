@@ -1,0 +1,70 @@
+/* ============================================
+   COLORS.CSS
+   Color palette, fonts, and base text formatting
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  /* Color Palette */
+  --red:        #e10600;  /* Racing Red - primary accent */
+  --red-bright: #ff3322;  /* Red Bright - hover states */
+  --bg:         #0a0a0a;  /* Midnight Black - page background */
+  --bg-card:    #141414;  /* Carbon Dark - card backgrounds */
+  --bg-sidebar: #111111;  /* Asphalt - header/footer background */
+  --border:     #2a2a2a;  /* Dark Border - dividers */
+  --text:       #f0f0f0;  /* Near White - primary body text */
+  --text-muted: #888888;  /* Muted Gray - footer/captions */
+  --text-dim:   #aaaaaa;  /* Dim Gray - secondary text */
+
+  /* Typography */
+  --font-display: 'Bebas Neue', Impact, sans-serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+}
+
+/* Base text formatting */
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+h1, h2 {
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+h2 {
+  border-bottom: 1px solid rgba(225, 6, 0, 0.3);
+  padding-bottom: 0.4rem;
+}
+
+.section-intro {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+}
+
+.site-logo-text,
+.footer-logo {
+  font-family: var(--font-display);
+  color: var(--red);
+  text-transform: uppercase;
+}
+
+.footer-tagline,
+.footer-copy {
+  color: var(--text-muted);
+}
+
+p[contenteditable="true"] {
+  color: var(--text-dim);
+  background: #1a1a1a;
+}
+
+p[contenteditable="true"]:focus {
+  color: var(--text);
+}

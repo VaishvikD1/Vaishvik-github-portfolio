@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Supercars | Home</title>
+  <link rel="stylesheet" href="styles/colors.css" />
+  <link rel="stylesheet" href="styles/layout.css" />
+  <link rel="stylesheet" href="styles/effects.css" />
+</head>
+<body>
+
+  <!-- IDENTITY BLOCK -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <div class="site-identity">
+        <span class="site-logo-icon" aria-hidden="true">🏎️</span>
+        <span class="site-logo-text">Supercars</span>
+      </div>
+
+      <label class="hamburger-toggle" for="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" />
+      <nav aria-label="Main Navigation">
+        <ul>
+          <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+          <li><a href="brands.html">Brands</a></li>
+          <li><a href="culture.html">Culture</a></li>
+          <li><a href="hobbies.html">Hobbies</a></li>
+          <li><a href="trinity.html">Holy Trinity</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main id="main-content">
+
+    <!-- HERO: top visual third -->
+    <section class="hero" aria-label="Hero banner">
+      <div class="hero-content">
+        <p class="hero-eyebrow">Speed. Power. Beauty.</p>
+        <h1 class="hero-title">The World's Greatest Supercars</h1>
+        <p class="hero-sub">Explore iconic brands, culture, and the machines that define an era.</p>
+      </div>
+    </section>
+
+    <!-- CONTENT GRID: 2/3 main, 1/3 sidebar -->
+    <div class="content-grid">
+
+      <div class="content-main">
+
+        <section id="brands" aria-labelledby="brands-heading">
+          <h2 id="brands-heading">🏎️ My Favorite Supercar Brands</h2>
+          <p class="section-intro">Six marques that push the limits of engineering and design — each with a character entirely their own. Visit the <a href="brands.html">Brands page</a> for the full lineup.</p>
+          <ul class="brand-list">
+            <li><a href="brands.html#ferrari">Ferrari</a></li>
+            <li><a href="brands.html#lamborghini">Lamborghini</a></li>
+            <li><a href="brands.html#mclaren">McLaren</a></li>
+            <li><a href="brands.html#bugatti">Bugatti</a></li>
+            <li><a href="brands.html#koenigsegg">Koenigsegg</a></li>
+            <li><a href="brands.html#pagani">Pagani</a></li>
+          </ul>
+        </section>
+
+        <section id="trinity" aria-labelledby="trinity-heading">
+          <h2 id="trinity-heading">The Holy Trinity</h2>
+          <p class="section-intro">Hybrid hypercars that defined an era — hover to inspect, click to learn more on the <a href="trinity.html">Holy Trinity page</a>.</p>
+          <div class="trinity-grid">
+
+            <a class="trinity-card" href="trinity.html#p1" tabindex="0" aria-label="McLaren P1 — view details">
+              <img src="images/mclaren-p1.jpg" alt="McLaren P1 in orange, front three-quarter view" loading="lazy" />
+              <div class="trinity-overlay">
+                <p class="trinity-name">McLaren P1</p>
+                <p class="trinity-stats">903 hp &bull; 0–60 in 2.8s &bull; 217 mph<br>375 units &bull; 2013–2015</p>
+              </div>
+            </a>
+
+            <a class="trinity-card" href="trinity.html#laferrari" tabindex="0" aria-label="Ferrari LaFerrari — view details">
+              <img src="images/ferrari-laferrari.jpg" alt="Ferrari LaFerrari in red" loading="lazy" />
+              <div class="trinity-overlay">
+                <p class="trinity-name">Ferrari LaFerrari</p>
+                <p class="trinity-stats">963 hp &bull; 0–60 in 2.4s &bull; 217 mph<br>499 units &bull; 2013–2016</p>
+              </div>
+            </a>
+
+            <a class="trinity-card" href="trinity.html#p918" tabindex="0" aria-label="Porsche 918 Spyder — view details">
+              <img src="images/porsche-918.jpg" alt="Porsche 918 Spyder on a road" loading="lazy" />
+              <div class="trinity-overlay">
+                <p class="trinity-name">Porsche 918 Spyder</p>
+                <p class="trinity-stats">887 hp &bull; 0–60 in 2.5s &bull; 214 mph<br>918 units &bull; 2013–2015</p>
+              </div>
+            </a>
+
+          </div>
+        </section>
+
+      </div><!-- /.content-main -->
+
+      <aside class="content-sidebar" aria-label="Secondary content">
+
+        <section id="culture" aria-labelledby="culture-heading">
+          <h2 id="culture-heading">🌍 Car Culture</h2>
+          <ul class="culture-list">
+            <li><span class="media-type film">Formula 1</span></li>
+            <li><span class="media-type film">Transformers</span></li>
+            <li><span class="media-type game">Need for Speed</span></li>
+            <li><span class="media-type film">Fast &amp; Furious</span></li>
+            <li><span class="media-type film">Cars</span></li>
+            <li><span class="media-type film">Rush</span></li>
+            <li><span class="media-type game">Gran Turismo</span></li>
+          </ul>
+          <p><a href="culture.html">See the full Car Culture page &rarr;</a></p>
+        </section>
+
+        <section id="hobbies" aria-labelledby="hobbies-heading">
+          <h2 id="hobbies-heading">🧩 Hobbies</h2>
+          <details>
+            <summary>See my car hobbies</summary>
+            <ul>
+              <li>Collecting <span class="brand">Hot Wheels</span> cars</li>
+              <li>Building <span class="brand">LEGO</span> car sets</li>
+              <li>Sim racing</li>
+            </ul>
+          </details>
+          <p><a href="hobbies.html">More on the Hobbies page &rarr;</a></p>
+        </section>
+
+        <section id="interact" aria-labelledby="interact-heading">
+          <h2 id="interact-heading">💬 Your Turn</h2>
+          <p>What is your favorite car?</p>
+          <p contenteditable="true" aria-label="Type your favorite car here">Type your answer here.</p>
+        </section>
+
+      </aside><!-- /.content-sidebar -->
+
+    </div><!-- /.content-grid -->
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">🏎️ Supercars</span>
+        <p class="footer-tagline">Speed. Power. Beauty.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="index.html">Home</a>
+        <a href="brands.html">Brands</a>
+        <a href="culture.html">Culture</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="trinity.html">Holy Trinity</a>
+      </nav>
+      <p class="footer-copy">&copy; 2026 Vaishvik Dogiparthi</p>
+    </div>
+  </footer>
+
+</body>
+</html>

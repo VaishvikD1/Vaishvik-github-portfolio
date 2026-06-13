@@ -1,0 +1,155 @@
+/* ============================================
+   EFFECTS.CSS
+   Hover states, transitions, and interactivity
+   ============================================ */
+
+/* Nav link hover / active underline animation */
+nav ul li a {
+  color: var(--text-dim);
+  transition: color 0.2s ease;
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 2px;
+  background: var(--red);
+  transition: left 0.25s ease, right 0.25s ease;
+  border-radius: 2px;
+}
+
+nav ul li a:hover { color: #fff; }
+
+nav ul li a:hover::after {
+  left: 1rem;
+  right: 1rem;
+}
+
+nav ul li a.active,
+nav ul li a[aria-current="page"] {
+  color: var(--red);
+}
+
+nav ul li a.active::after,
+nav ul li a[aria-current="page"]::after {
+  left: 1rem;
+  right: 1rem;
+}
+
+.hamburger-toggle span { background: var(--red); }
+
+/* Hero background gradient (pure CSS, no image needed) */
+.hero {
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.85) 100%),
+    radial-gradient(ellipse at 70% 50%, #3a0800 0%, #0a0a0a 70%);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(225,6,0,0.04) 60px, rgba(225,6,0,0.04) 61px),
+    repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(225,6,0,0.04) 60px, rgba(225,6,0,0.04) 61px);
+  pointer-events: none;
+}
+
+.hero-eyebrow { color: var(--red); }
+.hero-title { color: var(--text); }
+.hero-sub { color: var(--text-dim); }
+
+/* Brand list cards */
+.brand-list li a {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--red);
+  color: var(--text);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.brand-list li a:hover {
+  background: rgba(225,6,0,0.08);
+  border-left-color: var(--red-bright);
+  color: var(--red-bright);
+}
+
+/* Holy Trinity card hover/focus effects */
+.trinity-card:focus-visible {
+  box-shadow: 0 0 0 3px var(--red);
+}
+
+.trinity-card img {
+  transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.trinity-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(to top, rgba(0,0,0,0.88), transparent);
+}
+
+.trinity-card:hover img,
+.trinity-card:focus-visible img {
+  transform: scale(1.06);
+  filter: brightness(0.4);
+}
+
+.trinity-card:hover .trinity-overlay,
+.trinity-card:focus-visible .trinity-overlay {
+  opacity: 1;
+}
+
+/* Sidebar cards */
+.content-sidebar section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--red);
+}
+
+.culture-list li {
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.media-type.film::before { content: "🎬 "; font-size: 0.85em; }
+.media-type.game::before { content: "🎮 "; font-size: 0.85em; }
+
+/* Details/summary toggle */
+details summary {
+  cursor: pointer;
+  color: var(--red);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0;
+  user-select: none;
+  transition: color 0.15s;
+}
+
+details summary:hover { color: var(--red-bright); }
+
+.brand { color: var(--text); font-weight: 600; }
+
+/* Contenteditable "type your answer" field */
+p[contenteditable="true"] {
+  border: 1px dashed rgba(225,6,0,0.5);
+  transition: border-color 0.15s;
+}
+
+p[contenteditable="true"]:focus {
+  border-color: var(--red);
+  outline: none;
+}
+
+/* Footer nav hover */
+.footer-nav a {
+  color: var(--text-muted);
+  transition: color 0.15s;
+}
+
+.footer-nav a:hover { color: var(--red); }
