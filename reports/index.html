@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Color Report – Personal Website Project</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1c1c1e;
+      --mist: #f5f6f7;
+      --stone: #6b7280;
+      --rule: #e4e6ea;
+      --accent: #3b6e8f;
+      --accent-light: #d4e6f1;
+      --warm: #c97b3a;
+      --warm-light: #fdf0e0;
+      --forest: #3a5e4e;
+      --forest-light: #dceee8;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--mist);
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--ink);
+      color: #fff;
+      padding: 64px 40px 52px;
+      text-align: center;
+    }
+    header .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      margin-bottom: 16px;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    header p {
+      color: #9ca3af;
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: 15px;
+    }
+
+    /* ── LAYOUT ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+    }
+
+    section { margin-bottom: 72px; }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .section-rule {
+      width: 48px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 28px 0 8px;
+    }
+    p { margin-bottom: 16px; color: #2d3748; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── CALLOUT BOX ── */
+    .callout {
+      border-left: 4px solid var(--accent);
+      background: var(--accent-light);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+      font-size: 15px;
+    }
+
+    /* ── SOURCES ── */
+    .sources-list {
+      list-style: none;
+      padding: 0;
+    }
+    .sources-list li {
+      padding: 12px 16px;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: var(--stone);
+    }
+    .sources-list li strong {
+      display: block;
+      color: var(--ink);
+      font-size: 15px;
+      margin-bottom: 2px;
+    }
+    .sources-list li a { color: var(--accent); text-decoration: none; }
+    .sources-list li a:hover { text-decoration: underline; }
+
+    /* ── IMAGE CARDS ── */
+    .image-card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .image-card-header {
+      padding: 24px 28px 0;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .card-number {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--stone);
+      white-space: nowrap;
+    }
+    .image-card-header h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+    .image-card-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    @media (max-width: 640px) {
+      .image-card-body { grid-template-columns: 1fr; }
+    }
+    .image-placeholder {
+      min-height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #9ca3af;
+      text-align: center;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Image 1: Pacific coast – foggy blues/grays */
+    .img-coast {
+      background: linear-gradient(160deg, #b8ccd8 0%, #8ca6b8 30%, #6e8fa3 55%, #3e607a 80%, #2b4a60 100%);
+    }
+    .img-coast::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 40% at 50% 30%, rgba(255,255,255,.18) 0%, transparent 70%),
+        repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(255,255,255,.04) 40px);
+    }
+    .img-coast-label {
+      position: relative; z-index: 1;
+      color: rgba(255,255,255,.85);
+      font-style: italic;
+    }
+    /* Image 2: warm workspace – amber/cream */
+    .img-workspace {
+      background: linear-gradient(135deg, #f7e8c8 0%, #e8c87a 35%, #c97b3a 65%, #7a4520 100%);
+    }
+    .img-workspace::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 35% 45%, rgba(255,255,200,.35) 0%, transparent 60%);
+    }
+    .img-workspace-label {
+      position: relative; z-index: 1;
+      color: rgba(80,40,10,.8);
+      font-style: italic;
+    }
+    /* Image 3: twilight forest – deep purple/teal */
+    .img-forest {
+      background: linear-gradient(160deg, #1a1a3e 0%, #2d3a6e 25%, #3a4f5c 50%, #2e5e4e 75%, #1c3a2e 100%);
+    }
+    .img-forest::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(circle at 70% 20%, rgba(120,80,200,.25) 0%, transparent 50%),
+        radial-gradient(circle at 30% 80%, rgba(50,140,100,.2) 0%, transparent 45%);
+    }
+    .img-forest-label {
+      position: relative; z-index: 1;
+      color: rgba(200,210,255,.85);
+      font-style: italic;
+    }
+    .image-info {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .mood-tag {
+      display: inline-block;
+      background: var(--mist);
+      border: 1px solid var(--rule);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--stone);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .image-info p { font-size: 14px; margin-bottom: 0; }
+
+    /* ── PALETTE ── */
+    .palette-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-bottom: 10px;
+    }
+    .palette-swatches {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .swatch-chip {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: 0 1px 4px rgba(0,0,0,.1);
+    }
+    .swatch-hex {
+      font-size: 10px;
+      font-family: monospace;
+      color: var(--stone);
+      font-weight: 600;
+    }
+    .swatch-name {
+      font-size: 10px;
+      color: #9ca3af;
+      text-align: center;
+      max-width: 58px;
+      line-height: 1.2;
+    }
+
+    /* ── CONTRAST DEMO ── */
+    .contrast-demo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .contrast-cell {
+      border-radius: 10px;
+      padding: 16px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      border-top: 1px solid var(--rule);
+      color: var(--stone);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Personal Website Project — Color Research</p>
+  <h1>Color, Mood &amp; Personality</h1>
+  <p>An exploration of how color combinations shape emotion, perception, and identity in web design.</p>
+</header>
+
+<main>
+
+  <!-- ══════════════════════════════════════
+       PART 1 – RESEARCH QUESTIONS
+  ══════════════════════════════════════ -->
+  <section id="research">
+    <h2>Research Questions</h2>
+    <div class="section-rule"></div>
+
+    <!-- Q1 -->
+    <h3>1. What are "warm" and "cool" colors, and what feelings do they evoke?</h3>
+    <p>
+      Colors are traditionally divided into two broad temperature families based on their position on the color wheel. <strong>Warm colors</strong> — reds, oranges, yellows, and warm browns — sit on the side of the wheel associated with fire and sunlight. They are called "warm" not because they literally raise temperature, but because they trigger psychological associations with heat, energy, and proximity. Studies in environmental psychology show that warm-colored rooms are consistently rated as feeling warmer, more stimulating, and more sociable than equivalent cool-colored spaces.
+    </p>
+    <p>
+      <strong>Cool colors</strong> — blues, blue-greens, and most purples — occupy the opposite arc of the wheel, evoking sky, water, and shadow. They tend to feel more distant, calmer, and more intellectual. A cool palette can lower perceived room temperature by several degrees and slow perceived time, which is why hospitals, spas, and tech companies often default to blue: it reads as trustworthy, precise, and unhurried.
+    </p>
+    <div class="contrast-demo">
+      <div class="contrast-cell" style="background:#e8842a;color:#fff;">
+        <strong>Warm (Orange)</strong><br>Energetic · Inviting · Urgent
+      </div>
+      <div class="contrast-cell" style="background:#f5e96d;color:#4a3a00;">
+        <strong>Warm (Yellow)</strong><br>Cheerful · Optimistic · Caution
+      </div>
+      <div class="contrast-cell" style="background:#2e6ea6;color:#fff;">
+        <strong>Cool (Blue)</strong><br>Trustworthy · Calm · Focused
+      </div>
+      <div class="contrast-cell" style="background:#3a8a6e;color:#fff;">
+        <strong>Cool (Green)</strong><br>Natural · Balanced · Restful
+      </div>
+    </div>
+    <p>
+      It's worth noting that temperature is not absolute. A red shifted toward purple cools down; a green shifted toward yellow warms up. The perceived temperature of any single hue also shifts depending on what surrounds it — which leads directly to the second question.
+    </p>
+
+    <!-- Q2 -->
+    <h3>2. How does a color's effect change depending on the colors nearby? (Simultaneous Contrast)</h3>
+    <p>
+      Simultaneous contrast, first described systematically by Michel Eugène Chevreul in 1839 and later demonstrated by Josef Albers in his <em>Interaction of Color</em> (1963), is the phenomenon by which colors alter each other's perceived hue, value, and saturation when placed side by side. No color exists in isolation — every color is partly defined by what surrounds it.
+    </p>
+    <div class="callout">
+      <strong>Classic example:</strong> Place the same middle gray square on a white background and on a black background. The gray on white appears darker; the gray on black appears lighter. The gray hasn't changed — the eye has, because it subtracts the ambient light level from every local color judgment.
+    </div>
+    <p>
+      For web design this has several practical consequences. A muted, desaturated accent color can appear vibrant when surrounded by neutrals, but washed-out when placed next to a saturated color. A CTA button that looks great in a mockup can disappear on a final page if the surrounding hues compete with it. Warm backgrounds make cool elements appear cooler (and vice versa), which designers exploit to create temperature contrast that guides the eye. Text legibility is also affected: a dark green on a light green background may technically pass contrast ratios but still feel harder to read because the hues are too similar.
+    </p>
+
+    <!-- Q3 -->
+    <h3>3. Cultural differences in color meaning</h3>
+    <p>
+      Color symbolism is not universal — it is socially constructed and varies significantly across cultures, historical periods, and contexts. Three prominent examples:
+    </p>
+    <p>
+      <strong>White:</strong> In most Western cultures, white signifies purity, weddings, and new beginnings. Across much of East Asia — China, Japan, Korea, and Vietnam — white is the color of mourning and funerals. A healthcare website designed primarily for a Western audience with a white palette would carry a very different emotional charge if deployed unchanged for a Chinese-speaking audience.
+    </p>
+    <p>
+      <strong>Green:</strong> In the United States and Europe, green strongly connotes nature, sustainability, and financial prosperity ("greenbacks"). In some Islamic traditions, green is a sacred color associated with paradise and the Prophet Muhammad, lending it a spiritual gravitas absent in Western branding contexts. In China, a man wearing a green hat is associated with marital infidelity — a detail that has derailed more than one international product launch.
+    </p>
+    <p>
+      <strong>Red:</strong> Red means danger or urgency in most Western design systems (error states, stop signs). In China and much of South and East Asia, red is the color of luck, prosperity, and celebration — which is why it dominates Chinese New Year imagery and wedding traditions. In South Africa, red is associated with mourning, while in the Middle East it can connote caution or danger much as in the West.
+    </p>
+    <p>
+      The broader lesson for web design is that global or multilingual sites must audit palette choices against the cultural context of each audience segment rather than assuming a single palette will land consistently worldwide.
+    </p>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PART 2 – SOURCES
+  ══════════════════════════════════════ -->
+  <section id="sources">
+    <h2>Research Sources</h2>
+    <div class="section-rule"></div>
+    <ul class="sources-list">
+      <li>
+        <strong>Albers, Josef. <em>Interaction of Color.</em> Yale University Press, 1963 (50th anniversary ed. 2013).</strong>
+        The foundational text on simultaneous contrast, afterimage, and color relativity, demonstrated through hands-on plate exercises. The source of the gray-on-different-grounds example above.
+      </li>
+      <li>
+        <strong>Elliot, A. J., &amp; Maier, M. A. (2014). "Color Psychology: Effects of Perceiving Color on Psychological Functioning in Humans." <em>Annual Review of Psychology, 65,</em> 95–120.</strong>
+        A peer-reviewed meta-analysis summarizing decades of research on how color temperature, saturation, and hue affect emotion, cognition, and behavior across cultures.
+        <a href="https://www.annualreviews.org/doi/10.1146/annurev-psych-010213-115035" target="_blank">annualreviews.org →</a>
+      </li>
+      <li>
+        <strong>Heller, Eva. <em>Wie Farben wirken: Farbpsychologie, Farbsymbolik, kreative Farbgestaltung.</em> Rowohlt, 1989. (Translated editions widely available.)</strong>
+        A large-scale survey of color associations across European cultures, covering emotional, symbolic, and cross-cultural dimensions of each major hue.
+      </li>
+      <li>
+        <strong>Smashing Magazine. "Color Theory for Designers, Part 1–3." <em>Smashing Magazine,</em> 2010. (Cameron Chapman)</strong>
+        A widely-cited web-design-specific three-part series covering warm/cool, simultaneous contrast, cultural context, and how to build palettes for digital products.
+        <a href="https://www.smashingmagazine.com/2010/01/color-theory-for-designers-part-1-the-meaning-of-color/" target="_blank">smashingmagazine.com →</a>
+      </li>
+      <li>
+        <strong>Adobe Color. <em>Color wheel and palette extraction tool.</em> Adobe Inc.</strong>
+        Used to extract and adjust the color palettes from each reference image in Part 3 of this report.
+        <a href="https://color.adobe.com" target="_blank">color.adobe.com →</a>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       PART 3 – IMAGE EXAMPLES
+  ══════════════════════════════════════ -->
+  <section id="images">
+    <h2>Image Examples &amp; Color Palettes</h2>
+    <div class="section-rule"></div>
+    <p style="margin-bottom:32px;">
+      My personal website is for a Pacific Northwest–based creative technologist — someone who builds things thoughtfully, prefers substance over flash, and is at home equally outdoors and at a keyboard. The three images below each capture a different facet of that identity and suggest a corresponding palette direction.
+    </p>
+
+    <!-- IMAGE 1 -->
+    <div class="image-card">
+      <div class="image-card-header">
+        <span class="card-number">Image 01</span>
+        <h3>Fog at the Coast</h3>
+      </div>
+      <div class="image-card-body">
+        <div class="image-placeholder img-coast">
+          <span class="img-coast-label">Misty Pacific shoreline —<br>layered blues and sea-grays</span>
+        </div>
+        <div class="image-info">
+          <div>
+            <span class="mood-tag">Mood</span>
+            <p>
+              <strong>Calm, contemplative, quietly confident.</strong> The scene is a Pacific Northwest shoreline at mid-morning, when sea fog softens every edge and the water runs through steel-blue to deep slate. There is no urgency here — only steady attention. For a personal site, this palette projects intellectual depth and reliability without coldness; the layered grays prevent the blues from feeling corporate.
+            </p>
+          </div>
+          <div>
+            <p class="palette-label">Color Palette</p>
+            <div class="palette-swatches">
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#c8dae5;"></div>
+                <span class="swatch-hex">#C8DAE5</span>
+                <span class="swatch-name">Sea Mist</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#7fa3bb;"></div>
+                <span class="swatch-hex">#7FA3BB</span>
+                <span class="swatch-name">Coastal Blue</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#4a7594;"></div>
+                <span class="swatch-hex">#4A7594</span>
+                <span class="swatch-name">Deep Channel</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#2c4f66;"></div>
+                <span class="swatch-hex">#2C4F66</span>
+                <span class="swatch-name">Storm Slate</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#e8eef2;"></div>
+                <span class="swatch-hex">#E8EEF2</span>
+                <span class="swatch-name">Shoreline</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMAGE 2 -->
+    <div class="image-card">
+      <div class="image-card-header">
+        <span class="card-number">Image 02</span>
+        <h3>Golden Hour Workspace</h3>
+      </div>
+      <div class="image-card-body">
+        <div class="image-placeholder img-workspace">
+          <span class="img-workspace-label">Warm amber light on a<br>wooden desk at dusk</span>
+        </div>
+        <div class="image-info">
+          <div>
+            <span class="mood-tag">Mood</span>
+            <p>
+              <strong>Warm, approachable, creative in a grounded way.</strong> Late-afternoon light on a wooden desk — coffee, a notebook, the smell of something being made. This palette evokes the feeling of someone you'd want to work with: present, focused, human. The ambers and creams read as inviting without being informal; the deep brown anchor keeps it from feeling soft or unserious. Well-suited to the "about me" or contact section of a personal site.
+            </p>
+          </div>
+          <div>
+            <p class="palette-label">Color Palette</p>
+            <div class="palette-swatches">
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#fdf0d5;"></div>
+                <span class="swatch-hex">#FDF0D5</span>
+                <span class="swatch-name">Warm Linen</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#e8c07a;"></div>
+                <span class="swatch-hex">#E8C07A</span>
+                <span class="swatch-name">Afternoon Gold</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#c97b3a;"></div>
+                <span class="swatch-hex">#C97B3A</span>
+                <span class="swatch-name">Amber</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#7a4520;"></div>
+                <span class="swatch-hex">#7A4520</span>
+                <span class="swatch-name">Walnut</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#2e1a0e;"></div>
+                <span class="swatch-hex">#2E1A0E</span>
+                <span class="swatch-name">Dark Espresso</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMAGE 3 -->
+    <div class="image-card">
+      <div class="image-card-header">
+        <span class="card-number">Image 03</span>
+        <h3>Twilight Forest</h3>
+      </div>
+      <div class="image-card-body">
+        <div class="image-placeholder img-forest">
+          <span class="img-forest-label">Evergreen silhouettes against<br>a deep violet-teal sky</span>
+        </div>
+        <div class="image-info">
+          <div>
+            <span class="mood-tag">Mood</span>
+            <p>
+              <strong>Mysterious, focused, technically sophisticated.</strong> The Pacific Northwest at dusk — fir trees as black shapes against a sky that can't decide between deep teal and midnight purple. This palette signals someone who does serious, detail-oriented work and isn't afraid of the dark side of complexity. The slight warmth in the purple prevents the palette from reading as cold or unwelcoming, while the deep forest green grounds it in something real and local.
+            </p>
+          </div>
+          <div>
+            <p class="palette-label">Color Palette</p>
+            <div class="palette-swatches">
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#c8cef5;"></div>
+                <span class="swatch-hex">#C8CEF5</span>
+                <span class="swatch-name">Dusk Lavender</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#6272c8;"></div>
+                <span class="swatch-hex">#6272C8</span>
+                <span class="swatch-name">Twilight Indigo</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#2d3a6e;"></div>
+                <span class="swatch-hex">#2D3A6E</span>
+                <span class="swatch-name">Midnight</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#2e5e4e;"></div>
+                <span class="swatch-hex">#2E5E4E</span>
+                <span class="swatch-name">Fir Shadow</span>
+              </div>
+              <div class="swatch">
+                <div class="swatch-chip" style="background:#101420;"></div>
+                <span class="swatch-hex">#101420</span>
+                <span class="swatch-name">Deep Forest</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  Color Report — Personal Website Project &nbsp;·&nbsp; Prepared June 2026
+</footer>
+
+</body>
+</html>
